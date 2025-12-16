@@ -44,12 +44,13 @@ This project integrates **Machine Learning, Natural Language Processing (NLP), F
 
 ## 📁 Project Folder Structure
 
+## 📁 Project Folder Structure
+
+```text
 ai-university-decision-support-system/
-│
 ├── backend/
 │   ├── app.py
 │   ├── requirements.txt
-│   │
 │   ├── modules/
 │   │   ├── profile_analysis.py
 │   │   ├── admission_prediction.py
@@ -57,19 +58,15 @@ ai-university-decision-support-system/
 │   │   ├── nlp_query_handler.py
 │   │   ├── cost_roi_analysis.py
 │   │   └── admin_management.py
-│   │
 │   ├── data/
 │   │   ├── universities.csv
 │   │   └── scholarships.csv
-│   │
 │   ├── models/
 │   │   └── admission_model.pkl
-│   │
 │   ├── data_fetcher/
 │   │   ├── fetch_universities.py
 │   │   ├── fetch_scholarships.py
 │   │   └── clean_data.py
-│   │
 │   └── utils/
 │       └── helpers.py
 │
@@ -82,18 +79,14 @@ ai-university-decision-support-system/
 │   │   │   ├── UniversityList.jsx
 │   │   │   ├── QueryBox.jsx
 │   │   │   └── AdminPanel.jsx
-│   │   │
 │   │   ├── pages/
 │   │   │   ├── Home.jsx
 │   │   │   ├── Dashboard.jsx
 │   │   │   └── Admin.jsx
-│   │   │
 │   │   ├── services/
 │   │   │   └── api.js
-│   │   │
 │   │   ├── App.js
 │   │   └── index.js
-│   │
 │   └── package.json
 │
 ├── docs/
@@ -107,3 +100,4 @@ ai-university-decision-support-system/
 ├── .gitignore
 ├── README.md
 └── LICENSE
+
