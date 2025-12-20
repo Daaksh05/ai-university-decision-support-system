@@ -1,80 +1,98 @@
 /* Charts Dashboard Styles */
 .charts-dashboard {
-  background: #f8f9fa;
-  padding: 40px 20px;
-  border-radius: 12px;
-  margin: 20px 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(240, 147, 251, 0.05) 100%);
+  padding: 45px 25px;
+  border-radius: 20px;
+  margin: 25px 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .dashboard-header {
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 45px;
 }
 
 .dashboard-header h2 {
-  font-size: 2rem;
-  color: #2d3748;
-  margin: 0 0 10px 0;
-  font-weight: 700;
+  font-size: 2.2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 12px 0;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }
 
 .dashboard-header p {
   color: #718096;
   font-size: 1.05rem;
   margin: 0;
+  font-weight: 500;
 }
 
 /* Chart Tabs */
 .chart-tabs {
   display: flex;
-  gap: 12px;
-  margin-bottom: 30px;
+  gap: 14px;
+  margin-bottom: 35px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .tab {
-  padding: 12px 24px;
-  border: 2px solid #e2e8f0;
-  background: white;
-  border-radius: 8px;
+  padding: 12px 26px;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(250, 252, 255, 0.9) 100%);
+  border-radius: 12px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   color: #718096;
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   font-size: 0.95rem;
+  letter-spacing: 0.3px;
 }
 
 .tab:hover {
-  border-color: #cbd5e0;
-  color: #2d3748;
+  border-color: #667eea;
+  color: #667eea;
+  background: white;
+  transform: translateY(-2px);
 }
 
 .tab.active {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border-color: transparent;
-  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  transform: translateY(-4px);
 }
 
 /* Chart Container */
 .chart-container {
-  background: white;
-  border-radius: 12px;
-  padding: 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
-  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 18px;
+  padding: 35px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 .chart-view {
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeInUp 0.4s ease-out;
 }
 
 .chart-view h3 {
-  font-size: 1.3rem;
-  color: #2d3748;
-  margin: 0 0 10px 0;
-  font-weight: 600;
+  font-size: 1.4rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  letter-spacing: -0.3px;
 }
 
 .chart-description {

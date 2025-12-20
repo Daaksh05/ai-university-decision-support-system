@@ -1,0 +1,120 @@
+/* Ask AI Page Styles */
+.ask-ai-page {
+  min-height: calc(100vh - 200px);
+  padding: 40px 20px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.02) 0%, rgba(240, 147, 251, 0.02) 100%);
+}
+
+.ask-ai-header {
+  max-width: 1000px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.ask-ai-header h1 {
+  font-size: 40px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+
+.ask-ai-header p {
+  font-size: 16px;
+  color: #718096;
+  line-height: 1.6;
+}
+
+.ask-ai-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 30px;
+  align-items: start;
+}
+
+.query-wrapper {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.ask-ai-faq {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.ask-ai-faq h3 {
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 20px 0;
+}
+
+.faq-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  padding: 12px;
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid #667eea;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.faq-item:hover {
+  background: rgba(102, 126, 234, 0.1);
+  transform: translateX(4px);
+}
+
+.faq-item h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+  line-height: 1.4;
+}
+
+@media (max-width: 1024px) {
+  .ask-ai-container {
+    grid-template-columns: 1fr;
+  }
+
+  .ask-ai-faq {
+    position: static;
+  }
+}
+
+@media (max-width: 768px) {
+  .ask-ai-page {
+    padding: 20px 10px;
+  }
+
+  .ask-ai-header h1 {
+    font-size: 28px;
+  }
+
+  .query-wrapper {
+    padding: 20px;
+  }
+
+  .ask-ai-faq {
+    padding: 16px;
+  }
+}

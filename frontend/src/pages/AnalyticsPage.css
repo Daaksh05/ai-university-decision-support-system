@@ -1,0 +1,85 @@
+/* Analytics Page Styles */
+.analytics-page {
+  min-height: calc(100vh - 200px);
+  padding: 40px 20px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.02) 0%, rgba(240, 147, 251, 0.02) 100%);
+}
+
+.analytics-header {
+  max-width: 1200px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.analytics-header h1 {
+  font-size: 40px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+}
+
+.analytics-header p {
+  font-size: 16px;
+  color: #718096;
+  line-height: 1.6;
+}
+
+.analytics-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 30px;
+}
+
+.analytics-section {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.section-title {
+  margin-bottom: 30px;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+  padding-bottom: 20px;
+}
+
+.section-title h2 {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 8px 0;
+}
+
+.section-title p {
+  font-size: 14px;
+  color: #718096;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .analytics-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .analytics-page {
+    padding: 20px 10px;
+  }
+
+  .analytics-header h1 {
+    font-size: 28px;
+  }
+
+  .analytics-section {
+    padding: 20px;
+  }
+}
