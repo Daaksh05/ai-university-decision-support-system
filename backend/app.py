@@ -7,6 +7,11 @@ from modules.admission_prediction import predict_admission
 from modules.recommendation_engine import recommend_universities
 from modules.nlp_query_handler import answer_query
 from modules.cost_roi_analysis import analyze_total_cost, find_affordable_universities, match_scholarships
+from data_fetcher.fetch_scholarships import (
+    fetch_scholarships_by_country,
+    filter_scholarships as filter_scholarships_advanced,
+    get_scholarship_statistics
+)
 
 app = FastAPI()
 
@@ -112,9 +117,10 @@ def get_scholarships(request: ScholarshipRequest):
 @app.get("/universities")
 def get_all_universities():
     try:
-        df = pd.read_csv("backend/data/universities.csv")
-        if not os.path.exists("backend/data/universities.csv"):
-            df = pd.read_csv("data/universities.csv")
+        csv_path = "backend/data/universities.csv"
+        if not os.path.exists(csv_path):
+            csv_path = "data/universities.csv"
+        df = pd.read_csv(csv_path)
         return {
             "status": "success",
             "universities": df.to_dict(orient="records"),
@@ -126,9 +132,10 @@ def get_all_universities():
 @app.get("/scholarships-list")
 def get_all_scholarships():
     try:
-        df = pd.read_csv("backend/data/scholarships.csv")
-        if not os.path.exists("backend/data/scholarships.csv"):
-            df = pd.read_csv("data/scholarships.csv")
+        csv_path = "backend/data/scholarships.csv"
+        if not os.path.exists(csv_path):
+            csv_path = "data/scholarships.csv"
+        df = pd.read_csv(csv_path)
         return {
             "status": "success",
             "scholarships": df.to_dict(orient="records"),
@@ -136,3 +143,56 @@ def get_all_scholarships():
         }
     except Exception as e:
         return {"status": "error", "message": str(e)}
+
+# ========== Advanced Scholarship Endpoints ==========
+
+@app.get("/scholarships-by-country/{country}")
+def scholarships_by_country(country: str):
+    """Get scholarships available in a specific country"""
+    try:
+        scholarships = fetch_scholarships_by_country(country)
+        return {
+            "status": "success",
+            "country": country,
+            "scholarships": scholarships,
+            "total": len(scholarships)
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@app.get("/scholarships-statistics")
+def scholarships_statistics():
+    """Get statistics about all scholarships"""
+    try:
+        stats = get_scholarship_statistics()
+        return {
+            "status": "success",
+            "statistics": stats
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
+@app.get("/scholarships-filter")
+def filter_scholarships(country: str = None, coverage: str = None, min_amount: float = None, max_amount: float = None):
+    """Advanced scholarship filtering with multiple criteria"""
+    try:
+        scholarships = filter_scholarships_advanced(
+            country=country,
+            coverage=coverage,
+            min_amount=min_amount,
+            max_amount=max_amount
+        )
+        return {
+            "status": "success",
+            "scholarships": scholarships,
+            "total": len(scholarships),
+            "filters": {
+                "country": country,
+                "coverage": coverage,
+                "min_amount": min_amount,
+                "max_amount": max_amount
+            }
+        }
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
