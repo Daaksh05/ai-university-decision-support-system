@@ -31,6 +31,35 @@
   font-weight: 500;
 }
 
+/* Metric cards row */
+.metric-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin: 20px 0 30px 0;
+}
+
+.metric-card {
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(102,126,234,0.06), rgba(99,102,241,0.03));
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+  border: 1px solid rgba(102,126,234,0.06);
+}
+
+.metric-title {
+  font-size: 13px;
+  color: #475569;
+  font-weight: 700;
+}
+
+.metric-value {
+  margin-top: 8px;
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
 /* Chart Tabs */
 .chart-tabs {
   display: flex;

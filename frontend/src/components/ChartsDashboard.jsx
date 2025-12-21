@@ -6,6 +6,7 @@ const ChartsDashboard = ({ universities, studentProfile }) => {
 
   // Mock chart data - replace with actual data in production
   const generateCostVsRankingData = () => {
+    if (!universities || !Array.isArray(universities)) return [];
     return universities.slice(0, 10).map((uni) => ({
       name: uni.name.substring(0, 15),
       cost: uni.tuition_fee || Math.random() * 50000,
@@ -15,6 +16,7 @@ const ChartsDashboard = ({ universities, studentProfile }) => {
   };
 
   const generateAcceptanceProbabilityData = () => {
+    if (!universities || !Array.isArray(universities)) return [];
     return universities.slice(0, 8).map((uni) => ({
       name: uni.name.substring(0, 15),
       probability: Math.random() * 100,
@@ -23,6 +25,7 @@ const ChartsDashboard = ({ universities, studentProfile }) => {
   };
 
   const generateRoiData = () => {
+    if (!universities || !Array.isArray(universities)) return [];
     return universities.slice(0, 8).map((uni) => ({
       name: uni.name.substring(0, 15),
       roi: Math.random() * 300,
@@ -86,6 +89,24 @@ const ChartsDashboard = ({ universities, studentProfile }) => {
       <div className="dashboard-header">
         <h2>Analytics & Insights</h2>
         <p>Data-driven visualization of your university options</p>
+      </div>
+
+      {/* Metric Cards Row */}
+      <div className="metric-row">
+        <div className="metric-card">
+          <div className="metric-title">Avg Tuition</div>
+          <div className="metric-value">€{(costVsRankingData.length ? Math.round(costVsRankingData.reduce((s,d)=>s+d.cost,0)/costVsRankingData.length) : '—')}</div>
+        </div>
+
+        <div className="metric-card" style={{background: 'linear-gradient(135deg, rgba(129,140,248,0.08), rgba(196,181,253,0.04))'}}>
+          <div className="metric-title">Avg Ranking</div>
+          <div className="metric-value">{(costVsRankingData.length ? Math.round(costVsRankingData.reduce((s,d)=>s+d.ranking,0)/costVsRankingData.length) : '—')}</div>
+        </div>
+
+        <div className="metric-card" style={{background: 'linear-gradient(135deg, rgba(34,211,238,0.06), rgba(232,121,249,0.04))'}}>
+          <div className="metric-title">Top Match</div>
+          <div className="metric-value">{costVsRankingData[0]?.name ?? '—'}</div>
+        </div>
       </div>
 
       {/* Chart Selector Tabs */}
